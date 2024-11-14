@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="cwe-container">
+    <!-- Main Info Card -->
+    <div class="info-card">
+    		<h1 class="title">{{ page.title }}</h1>
+      	<a href="{{ page.extra.url }}" class="cwe-link" target="_blank">View on MITRE</a>
+        <!-- CWE Details -->
+        <hr>
+        <div class="cwe-details">
+            <p><strong>Name:</strong> {{ page.extra.name }}</p>
+            <p><strong>Description:</strong> {{ page.description }}</p>
+        </div>
+        <hr>
+
+        <!-- Vote Status -->
+        <div class="vote-section">
+            <h2>Security Vote Status</h2>
+            <div class="vote-badge
+                {% if page.extra.vote == "No Help, or Langs Won't Help" %}vote-red
+                {% elif page.extra.vote == "Opt-In Measures Only" %}vote-yellow
+                {% elif page.extra.vote == "Discouraged via Borrow Checker" %}vote-yellow
+                {% elif page.extra.vote == "Discouraged via Debug Mode" %}vote-yellow
+                {% elif page.extra.vote == "Virtually Impossible" %}vote-green
+                {% else %}vote-grey
+                {% endif %}">
+                {% if page.extra.vote %}
+                {{ page.extra.vote }}
+                {% else %}
+                No Vote
+								{% endif %}
+            </div>
+        </div>
+
+        <!-- Clippy Helper -->
+        {% if page.extra.vote %}
+        <div class="clippy-section">
+            <h2>Clippy Support</h2>
+            <span class="clippy-badge {% if page.extra.clippy_helps %}clippy-yes{% else %}clippy-no{% endif %}">
+                {% if page.extra.clippy_helps %}Clippy Helps{% else %}No Clippy Support{% endif %}
+            </span>
+        </div>
+        {% endif %}
+
+        {% if page.content %}
+        <hr>
+		    <!-- Content Section -->
+        <div class="cwe-content">
+	        <h2>Security Vote Notes:</h2>
+			    <div class="voter-notes">
+							<p >
+	       				{{ page.content | safe }}
+							</p>
+			    </div>
+        </div>
+        {% endif %}
+
+				<!-- Documentation Links -->
+        {% if page.extra.rust_docs_links %}
+        <div class="docs-section">
+            <h2>Related Documentation</h2>
+            <ul class="docs-list">
+                {% for link in page.extra.rust_docs_links %}
+                <li>
+                <a href="{{ link }}" target="_blank">{{ link | safe }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+
+<style>
+    .cwe-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .info-card {
+        background: #F5F5F7;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .voter-notes {
+		    background: #fafafa;
+		    border-radius: 4px;
+				border-style: dashed;
+				border-width: 1px;
+		    padding: 0px 10px;
+		    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+    .vote-badge {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 4px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .vote-red {
+        background-color: #dc3545;
+    }
+
+
+    .vote-grey {
+        background-color: #565D63;
+    }
+
+    .vote-yellow {
+        background-color: #ffc107;
+        color: #000;
+    }
+
+    .vote-green {
+        background-color: #28a745;
+    }
+
+    .clippy-badge {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .clippy-yes {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .clippy-no {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .docs-list {
+        list-style-type: disc;
+    }
+
+    .docs-list li {
+        margin: 8px 0;
+    }
+
+    .docs-list a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
+    .docs-list a:hover {
+        text-decoration: underline;
+    }
+
+    .content-section {
+        margin-top: 30px;
+        line-height: 1;
+    }
+
+    .cwe-link {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #0066cc;
+        color: white;
+        underline: true;
+        border-radius: 4px;
+    }
+
+    .cwe-link:hover {
+        background-color: #0052a3;
+    }
+
+    h2 {
+        color: #333;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+</style>
+
+{% endblock content %}

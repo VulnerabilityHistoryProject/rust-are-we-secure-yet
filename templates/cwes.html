@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="cwe-container">
+    <h1 class="title">{{ section.title }}</h1>
+
+    <!-- Search and Filter Controls -->
+    <div class="controls">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by name...">
+        <div class="filter-dropdown">
+            <select id="voteFilter">
+                <option value="all">All Votes</option>
+                <option value="No Help, or Langs Won't Help">No Help, or Langs Won't Help</option>
+                <option value="Opt-In Measures Only">Opt-In Measures Only</option>
+                <option value="Discouraged via Borrow Checker">Discouraged via Borrow Checker</option>
+                <option value="Discouraged via Debug Mode">Discouraged via Debug Mode</option>
+                <option value="Virtually Impossible">Virtually Impossible</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+        <table id="cweTable">
+            <thead>
+                <tr>
+                    <th>CWE ID</th>
+                    <th>Name</th>
+                    <th>Vote Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for page in section.pages %}
+                <tr class="cwe-row">
+                    <td>CWE-{{ page.extra.id }}</td>
+                    <td><a href="{{ page.permalink | safe }}">{{ page.extra.name }}</a></td>
+                    <td>
+                        <span class="vote-badge
+                            {% if page.extra.vote == "No Help, or Langs Won't Help" %}vote-red
+                            {% elif page.extra.vote == "Opt-In Measures Only" %}vote-yellow
+                            {% elif page.extra.vote == "Discouraged via Borrow Checker" %}vote-yellow
+                            {% elif page.extra.vote == "Discouraged via Debug Mode" %}vote-yellow
+                            {% elif page.extra.vote == "Virtually Impossible" %}vote-green
+                            {% endif %}">
+                            {{ page.extra.vote }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+		tbody tr:nth-child(even) {
+		    background-color: #f5f5f7;
+		}
+
+		tbody tr:nth-child(odd) {
+		    background-color: #ffffff;
+		}
+
+		tbody tr:hover {
+		    background-color: #F2F9FF !important;
+		}
+
+    .cwe-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .controls {
+        margin: 20px 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .search-input {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 300px;
+        font-size: 16px;
+    }
+
+    .filter-dropdown select {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .vote-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .vote-red {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .vote-yellow {
+        background-color: #ffc107;
+        color: #000;
+    }
+
+    .vote-green {
+        background-color: #28a745;
+        color: white;
+    }
+
+    a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const voteFilter = document.getElementById('voteFilter');
+    const rows = document.querySelectorAll('#cweTable tbody tr');
+
+    function filterTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedVote = voteFilter.value;
+
+        rows.forEach(row => {
+            const id = row.querySelector('td:first-child').textContent.toLowerCase();
+            const name = id + row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            const vote = row.querySelector('.vote-badge').textContent.trim();
+
+            const matchesSearch = name.includes(searchTerm);
+            const matchesVote = selectedVote === 'all' || vote === selectedVote;
+
+            row.style.display = matchesSearch && matchesVote ? '' : 'none';
+        });
+    }
+
+    searchInput.addEventListener('input', filterTable);
+    voteFilter.addEventListener('change', filterTable);
+});
+</script>
+
+{% endblock content %}

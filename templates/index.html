@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="title">Hello world.</h1>
+<p><a href="{{ get_url(path='@/blog/_index.md') }}">Posts</a>.</p>
+<p>
+	<a href="{{ get_url(path='@/cwes/_index.md') }}">View CWE Categorizations</a>.
+</p>
+{% endblock content %}
