@@ -21,7 +21,7 @@ weight = 10
 [[extra.menu.main]]
 name = "Contributing"
 section = "contributing"
-url = "/docs/contributing/"
+url = "/docs/contributing/how-to-contribute"
 weight = 20
 
 

@@ -102,7 +102,7 @@ weight = 10
 [[extra.menu.main]]
 name = "Contributing"
 section = "contributing"
-url = "/docs/contributing/"
+url = "/docs/contributing/how-to-contribute"
 weight = 20
 
 [[extra.menu.social]]
@@ -120,8 +120,3 @@ info = 'Powered by <a href="https://www.getzola.org/">Zola</a>, and <a href="htt
 name = "Privacy"
 url = "/privacy-policy/"
 weight = 10
-
-[[extra.footer.nav]]
-name = "Code of Conduct"
-url = "/docs/contributing/code-of-conduct/"
-weight = 20

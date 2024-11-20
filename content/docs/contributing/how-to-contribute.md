@@ -1,35 +1,35 @@
 +++
-title = "How to Contribute"
-description = "Contribute to AdiDoks, improve documentation, or submit to showcase."
+title = "Contributing"
+description = "How to contribute to Rust Are We Secure Yet?"
 draft = false
 weight = 410
 sort_by = "weight"
 template = "docs/page.html"
 
 [extra]
-lead = "Contribute to AdiDoks, improve documentation, or submit to showcase."
 toc = true
 top = false
 +++
 
-👉 Make sure to read the [Code of Conduct](../code-of-conduct/).
+## How to Contribute
+**There are two easy ways to contribute to Rust Are We Secure Yet:**
 
-## Contribute to Doks
+1. **Direct GitHub Contribution**
+   - Visit our [GitHub repository](https://github.com/yourusername/rust-are-we-secure-yet)
+   - Open a pull request with your suggested changes or additions
+2. **Edit from the Website**
+   - Find the CWE page you want to contribute to
+   - Click the "Edit this page on GitHub" link at the bottom of that page
+   - Make your changes and submit them as a pull request
 
-👉 The AdiDoks code lives in the [`adidoks` repository](https://github.com/aaranxu/adidoks)
+All contributions are welcome! Think of this as a collaborative wiki where your suggestions help make the Rust security landscape more accessible and comprehensive.
 
-- Follow the [GitHub flow](https://guides.github.com/introduction/flow/).
-- Follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+## What to Contribute
 
-### Create an issue
-
-- [Bug report](https://github.com/aaranxu/adidoks/issues/new?template=bug-report---.md)
-- [Feature request](https://github.com/aaranxu/adidoks/issues/new?template=feature-request---.md)
-
-## Improve documentation
-
-👉 The documentation lives in [`./content/docs/`](https://github.com/aaranxu/adidoks/tree/master/content/docs)
-of the [`adidoks` repository](https://github.com/h-enk/getdoks.org).
-
-- Follow the [GitHub flow](https://guides.github.com/introduction/flow/).
-- Follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+**You can contribute**:
+- New CWE examples
+- Code snippets
+- Better explanations
+- Additional resources
+- Corrections to existing content
+- Or any other improvements you think would be valuable
