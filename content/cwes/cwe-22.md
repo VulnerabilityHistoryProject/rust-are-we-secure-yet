@@ -13,7 +13,7 @@ name = '''
 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
 '''
 url = "https://cwe.mitre.org/data/definitions/22.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Base"
 clippy_helps = false
 rust_docs_links = [

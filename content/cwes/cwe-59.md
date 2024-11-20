@@ -13,7 +13,7 @@ name = '''
 Improper Link Resolution Before File Access ('Link Following')
 '''
 url = "https://cwe.mitre.org/data/definitions/59.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Base"
 clippy_helps = false
 rust_docs_links = [

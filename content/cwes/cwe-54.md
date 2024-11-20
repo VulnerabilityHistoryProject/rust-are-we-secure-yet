@@ -13,7 +13,7 @@ name = '''
 Path Equivalence: 'filedir\' (Trailing Backslash)
 '''
 url = "https://cwe.mitre.org/data/definitions/54.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Variant"
 clippy_helps = false
 rust_docs_links = [

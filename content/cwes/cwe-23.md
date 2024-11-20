@@ -13,11 +13,11 @@ name = '''
 Relative Path Traversal
 '''
 url = "https://cwe.mitre.org/data/definitions/23.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Base"
 clippy_helps = false
 rust_docs_links = [
-	
+
 ]
 +++
-Same as above whatever we decide
+Same as whatever is decided for [CWE-22: Path Traversal](/cwes/cwe-22).

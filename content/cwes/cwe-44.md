@@ -13,7 +13,7 @@ name = '''
 Path Equivalence: 'file.name' (Internal Dot)
 '''
 url = "https://cwe.mitre.org/data/definitions/44.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Variant"
 clippy_helps = false
 rust_docs_links = [

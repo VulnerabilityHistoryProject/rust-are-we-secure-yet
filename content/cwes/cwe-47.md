@@ -13,7 +13,7 @@ name = '''
 Path Equivalence: ' filename' (Leading Space)
 '''
 url = "https://cwe.mitre.org/data/definitions/47.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Variant"
 clippy_helps = false
 rust_docs_links = [

@@ -13,7 +13,7 @@ name = '''
 UNIX Symbolic Link (Symlink) Following
 '''
 url = "https://cwe.mitre.org/data/definitions/61.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Compound"
 clippy_helps = false
 rust_docs_links = [

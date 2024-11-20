@@ -13,10 +13,10 @@ name = '''
 UNIX Hard Link
 '''
 url = "https://cwe.mitre.org/data/definitions/62.html"
-vote = "Discouraged via Borrow Checker"
+vote = "Discouraged via Language, Library Design"
 class = "Variant"
 clippy_helps = false
 rust_docs_links = [
-	
+
 ]
 +++
