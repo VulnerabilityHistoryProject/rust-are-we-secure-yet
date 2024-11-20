@@ -17,7 +17,10 @@ vote = "Virtually Impossible"
 class = "Base"
 clippy_helps = false
 rust_docs_links = [
-	
+
 ]
 +++
-REVISIT: are there ways of injecting pre-compiled code at runtime?
+`REVISIT`: are there ways of injecting pre-compiled code at runtime?
+
+#### GitHub Discussion:
+- [https://github.com/VulnerabilityHistoryProject/mega-foss/issues/24](https://github.com/VulnerabilityHistoryProject/mega-foss/issues/24)

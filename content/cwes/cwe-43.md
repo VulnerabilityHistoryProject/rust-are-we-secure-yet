@@ -17,6 +17,7 @@ vote = ""
 class = "Variant"
 clippy_helps = false
 rust_docs_links = [
-	
+
 ]
 +++
+Same as whatever is decided for base [CWE-41: Improper Resolution of Path Equivalence](/cwes/cwe-41)
