@@ -1,0 +1,109 @@
+{% extends "adidoks/templates/blog/section.html" %}
+
+{% block body %}
+  {% set page_class = "cwes list" %}
+{% endblock body %}
+
+{% block header %}
+  {% set current_section = "cwes" %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
+
+{% block content %}
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-14 col-xxl-16">
+        <article>
+          <h1 class="text-center">{{ section.title }}</h1>
+
+          <!-- Search and Filter Controls -->
+          <div class="controls d-flex justify-content-between align-items-center my-4">
+            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search by name...">
+            <select id="voteFilter" class="form-select w-auto">
+              <option value="all">All Votes</option>
+              <option value="No Help, or Langs Won't Help">No Help, or Langs Won't Help</option>
+              <option value="Opt-In Measures Only">Opt-In Measures Only</option>
+              <option value="Discouraged via Borrow Checker">Discouraged via Borrow Checker</option>
+              <option value="Discouraged via Debug Mode">Discouraged via Debug Mode</option>
+              <option value="Virtually Impossible">Virtually Impossible</option>
+            </select>
+          </div>
+
+          <!-- Table -->
+          <div class="table-container">
+            <table class="table table-striped" id="cweTable">
+              <thead>
+                <tr>
+                  <th>CWE ID</th>
+                  <th>Name</th>
+                  <th>Vote Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for page in paginator.pages %}
+                <tr class="cwe-row" data-href="{{ page.permalink | safe }}">
+                  <td>CWE-{{ page.extra.id }}</td>
+                  <td>{{ page.extra.name }}</td>
+                  <td>
+                    <span class="vote-badge-section
+                      {% if page.extra.vote == "No Help, or Langs Won't Help" %}vote-red
+                      {% elif page.extra.vote == "Opt-In Measures Only" %}vote-yellow
+                      {% elif page.extra.vote == "Discouraged via Borrow Checker" %}vote-yellow
+                      {% elif page.extra.vote == "Discouraged via Debug Mode" %}vote-yellow
+                      {% elif page.extra.vote == "Virtually Impossible" %}vote-green
+                      {% endif %}">
+                      {{ page.extra.vote }}
+                    </span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          {% if paginator.previous or paginator.next %}
+            {{ macros_section_nav::navigation(paginator=paginator) }}
+          {% endif %}
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const voteFilter = document.getElementById('voteFilter');
+    const rows = document.querySelectorAll('#cweTable tbody tr');
+    document.querySelectorAll('.cwe-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const href = row.getAttribute('data-href');
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+
+    function filterTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedVote = voteFilter.value;
+
+        rows.forEach(row => {
+            const id = row.querySelector('td:first-child').textContent.toLowerCase();
+            const name = id + row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            const vote = row.querySelector('.vote-badge-section').textContent.trim();
+
+            const matchesSearch = name.includes(searchTerm);
+            const matchesVote = selectedVote === 'all' || vote === selectedVote;
+
+            row.style.display = matchesSearch && matchesVote ? '' : 'none';
+        });
+    }
+
+    searchInput.addEventListener('input', filterTable);
+    voteFilter.addEventListener('change', filterTable);
+});
+</script>
+
+{% endblock content %}

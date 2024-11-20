@@ -1,0 +1,102 @@
+{% extends "adidoks/templates/page.html" %}
+
+{% block seo %}
+  {# This value is matched by the config.extra.menu.main->section #}
+  {% set_global current_section = 'cwes' %}
+  {{ super() }}
+{% endblock seo %}
+
+{% block header %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
+
+{% block content %}
+
+<div class="cwe-container">
+    <!-- Main Info Card -->
+    <div class="info-card">
+    		<h1 class="title">{{ page.title }}</h1>
+        <!-- CWE Details -->
+        <hr>
+        <div class="cwe-details">
+            <p><strong>Name:</strong> {{ page.extra.name }}</p>
+            <p><strong>Description:</strong> {{ page.description }}</p>
+        </div>
+        <hr>
+
+        <!-- Vote Status -->
+        <div class="vote-section">
+            <h3>Security Vote Status</h3>
+            <div class="vote-badge
+                {% if page.extra.vote == "No Help, or Langs Won't Help" %}vote-red
+                {% elif page.extra.vote == "Opt-In Measures Only" %}vote-yellow
+                {% elif page.extra.vote == "Discouraged via Borrow Checker" %}vote-yellow
+                {% elif page.extra.vote == "Discouraged via Debug Mode" %}vote-yellow
+                {% elif page.extra.vote == "Virtually Impossible" %}vote-green
+                {% else %}vote-grey
+                {% endif %}">
+                {% if page.extra.vote %}
+                {{ page.extra.vote }}
+                {% else %}
+                No Vote
+								{% endif %}
+            </div>
+        </div>
+
+        <!-- Clippy Helper -->
+        {% if page.extra.vote %}
+        <div class="clippy-section">
+            <h3>Clippy Support</h3>
+            <span class="clippy-badge {% if page.extra.clippy_helps %}vote-green{% else %}vote-red{% endif %}">
+                {% if page.extra.clippy_helps %}Clippy Helps{% else %}No Clippy Support{% endif %}
+            </span>
+        </div>
+        {% endif %}
+
+        {% if page.content %}
+        <hr>
+		    <!-- Content Section -->
+        <div class="cwe-content">
+	        <h2>Security Vote Notes:</h2>
+			    <div class="voter-notes">
+							<p >
+	       				{{ page.content | safe }}
+							</p>
+			    </div>
+        </div>
+        {% endif %}
+
+				<!-- Documentation Links -->
+        {% if page.extra.rust_docs_links %}
+        <div class="docs-section">
+            <h2>Related Documentation</h2>
+            <ul class="docs-list">
+                {% for link in page.extra.rust_docs_links %}
+                <li>
+                <a href="{{ link }}" target="_blank">{{ link | safe }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div class="edit-page">
+	    <a href="{{ page.extra.url }}" target="_blank">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+					<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+					<polyline points="15 3 21 3 21 9"></polyline>
+					<line x1="10" y1="14" x2="21" y2="3"></line>
+				</svg>View on MITRE</a>
+
+	    <br/>
+
+	    <a href="{{ config.extra.docs_repo }}/blob/{{ config.extra.repo_branch }}/content{{ current_path | replace(from="\\", to="/") | trim_end_matches(pat="/") }}.md">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2">
+					<path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"> </path>
+				</svg>Suggest changes on GitHub</a>
+    </div>
+
+</div>
+{% endblock content %}

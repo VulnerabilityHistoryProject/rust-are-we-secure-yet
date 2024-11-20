@@ -1,0 +1,166 @@
+.cwe-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.info-card {
+	background: #f5f5f710;
+	border-radius: 8px;
+	padding: 20px;
+	margin: 20px 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.voter-notes {
+	background: #fafafa;
+	border-radius: 4px;
+	border-style: dashed;
+	border-width: 1px;
+	padding: 0px 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vote-badge {
+	display: inline-block;
+	padding: 8px 16px;
+	border-radius: 4px;
+	color: white;
+	font-weight: bold;
+}
+
+.clippy-badge {
+	display: inline-block;
+	padding: 8px 16px;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+.clippy-yes {
+	background-color: #28a745;
+	color: white;
+}
+
+.clippy-no {
+	background-color: #dc3545;
+	color: white;
+}
+
+.docs-list {
+	list-style-type: disc;
+}
+
+.docs-list li {
+	margin: 8px 0;
+}
+
+.docs-list a {
+	color: #0066cc;
+	text-decoration: none;
+}
+
+.docs-list a:hover {
+	text-decoration: underline;
+}
+
+.content-section {
+	margin-top: 30px;
+	line-height: 1;
+}
+
+.cwe-link {
+	display: inline-block;
+	padding: 8px 16px;
+	color: #ed764a;
+	underline: true;
+	border-radius: 4px;
+}
+
+/* .cwe-link:hover {
+    background-color: #91A3D7;
+} */
+
+.cwe-link a {
+	color: white;
+}
+
+h2 {
+	color: #333;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+/* SECTION CSS */
+
+.vote-badge-section {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.vote-red {
+	background-color: #dc3545;
+	color: white;
+}
+
+.vote-yellow {
+	background-color: #ffc107;
+	color: #000;
+}
+
+.vote-green {
+	background-color: #28a745;
+	color: white;
+}
+
+.vote-grey {
+	background-color: #565d63;
+}
+
+.cwe-row:hover {
+	background-color: #f69977;
+	cursor: pointer;
+}
+
+body.dark .vote-red {
+	background-color: #bb2d3b;
+}
+
+body.dark .vote-yellow {
+	background-color: #e0a800;
+}
+
+body.dark .vote-green {
+	background-color: #218838;
+}
+
+body.dark .vote-grey {
+	background-color: #565d63;
+}
+
+body.dark table {
+	background-color: #2c2f33;
+	color: #eaeaea;
+}
+
+body.dark table th {
+	background-color: #23272a;
+}
+
+body.dark .cwe-row:hover {
+	color: #f69977;
+	cursor: pointer;
+}
+
+body.dark .search-input,
+body.dark .form-select {
+	background-color: #23272a;
+	color: #eaeaea;
+	border: 1px solid #444;
+}
+
+.search-input {
+	width: 300px;
+}

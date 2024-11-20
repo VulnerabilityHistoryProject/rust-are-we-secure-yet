@@ -1,0 +1,7 @@
+{% extends "adidoks/templates/docs/section.html" %}
+
+{% block header %}
+  {# This value is matched by the config.extra.menu.main~section #}
+  {% set current_section = "contributing" %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
