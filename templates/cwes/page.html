@@ -21,6 +21,7 @@
         <div class="cwe-details">
             <p><strong>Name:</strong> {{ page.extra.name }}</p>
             <p><strong>Description:</strong> {{ page.description }}</p>
+            <p><strong>Classification:</strong> {{page.extra.class}}</p>
         </div>
         <hr>
 
@@ -30,7 +31,7 @@
             <div class="vote-badge
                 {% if page.extra.vote == "No Help, or Langs Won't Help" %}vote-red
                 {% elif page.extra.vote == "Opt-In Measures Only" %}vote-yellow
-                {% elif page.extra.vote == "Discouraged via Borrow Checker" %}vote-yellow
+                {% elif page.extra.vote == "Discouraged via Language, Library Design" %}vote-yellow
                 {% elif page.extra.vote == "Discouraged via Debug Mode" %}vote-yellow
                 {% elif page.extra.vote == "Virtually Impossible" %}vote-green
                 {% else %}vote-grey
