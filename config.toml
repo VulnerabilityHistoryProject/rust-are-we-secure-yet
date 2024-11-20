@@ -61,7 +61,7 @@ title_addition = ""
 # Edit page on reposity or not
 edit_page = true
 docs_repo = "https://github.com/VulnerabilityHistoryProject/rust-are-we-secure-yet"
-repo_branch = "main"
+repo_branch = "master"
 
 ## Math settings
 # options: true, false. Enable math support globally,
