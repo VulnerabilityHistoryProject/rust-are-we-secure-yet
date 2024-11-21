@@ -20,4 +20,4 @@ rust_docs_links = [
 
 ]
 +++
-Same as whatever is decided for base [CWE-41: Improper Resolution of Path Equivalence](rust-are-we-secure-yet/cwes/cwe-41)
+Same as whatever is decided for base [CWE-41: Improper Resolution of Path Equivalence](/rust-are-we-secure-yet/cwes/cwe-41)
