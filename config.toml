@@ -1,6 +1,6 @@
 # The URL the site will be built for
-# base_url = "https://vulnerabilityhistoryproject.github.io/rust-are-we-secure-yet/"
-base_url = "https://rust.vulnerabilityhistory.org/"
+base_url = "https://vulnerabilityhistoryproject.github.io/rust-are-we-secure-yet/"
+# base_url = "https://rust.vulnerabilityhistory.org/"
 title = "Rust Are We Secure Yet?"
 description = "A best-case speculation on how Rust fairs against CWEs"
 
