@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vulnerabilityhistoryproject.github.io/rust-are-we-secure-yet//sitemap.xml
