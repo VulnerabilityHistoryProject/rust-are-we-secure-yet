@@ -1,22 +1,25 @@
 +++
-title = '''
-CWE-84: Improper Neutralization of Encoded URI Schemes in a Web Page
-'''
-description	= '''
-The web application improperly neutralizes user-controlled input for executable script disguised with URI encodings.
-'''
+title = "CWE-84: Improper Neutralization of Encoded URI Schemes in a Web Page\n"
+description = "The web application improperly neutralizes user-controlled input for executable script disguised with URI encodings.\n"
 weight = 84
 
 [extra]
 id = 84
-name = '''
-Improper Neutralization of Encoded URI Schemes in a Web Page
-'''
+name = "Improper Neutralization of Encoded URI Schemes in a Web Page\n"
 url = "https://cwe.mitre.org/data/definitions/84.html"
-vote = "No Help, or Langs Won't Help"
 class = "Variant"
-clippy_helps = false
-rust_docs_links = [
-	
-]
+rust_docs_links = []
+parent = "79"
+
+[extra.vote]
+"No Help, or Langs Wont Help" = true
+Discouraged = false
+"Discouraged via Library" = false
+"Discouraged via Borrow Checker" = false
+"Discouraged via Debug Mode" = false
+"Discouraged via Clippy" = false
+"Virtually Impossible" = false
+
+[extra.vector]
+
 +++

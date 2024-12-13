@@ -1,22 +1,30 @@
 +++
-title = '''
-CWE-20: Improper Input Validation
-'''
-description	= '''
-The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
-'''
+title = "CWE-20: Improper Input Validation\n"
+description = "The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.\n"
 weight = 20
 
 [extra]
 id = 20
-name = '''
-Improper Input Validation
-'''
+name = "Improper Input Validation\n"
 url = "https://cwe.mitre.org/data/definitions/20.html"
-vote = "No Help, or Langs Won't Help"
 class = "Class"
-clippy_helps = false
-rust_docs_links = [
-	
-]
+rust_docs_links = []
+parent = "707"
+
+[extra.vote]
+"No Help, or Langs Wont Help" = true
+Discouraged = false
+"Discouraged via Library" = false
+"Discouraged via Borrow Checker" = false
+"Discouraged via Debug Mode" = false
+"Discouraged via Clippy" = false
+"Virtually Impossible" = false
+
+[extra.vector]
+"Attack Vector" = "NETWORK"
+"Attack Complexity" = "LOW"
+Confidentiality = "PARTIAL"
+Integrity = "PARTIAL"
+Availability = "PARTIAL"
+
 +++
