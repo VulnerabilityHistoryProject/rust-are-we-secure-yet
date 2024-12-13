@@ -22,6 +22,60 @@
             <p><strong>Name:</strong> {{ page.extra.name }}</p>
             <p><strong>Description:</strong> {{ page.description }}</p>
             <p><strong>Classification:</strong> {{page.extra.class}}</p>
+
+            {% if page.extra.parent %}
+            <p><strong>Parent:</strong> 
+                <a href="/rust-are-we-secure-yet/cwes/cwe-{{ page.extra.parent }}">CWE-{{ page.extra.parent }}</a>
+            </p>
+            {% endif %}
+
+          {% if page.extra.vector["Privileges Required"] %}
+          <div>
+            <button class="button" onclick="toggleVector()">Show/Hide Attack Vector Details</button>
+            <div id="vectorDetails" style="display: none;">
+              <table class="cve-details-table">
+                  <tr>
+                      <td><strong>Attack Vector</strong></td>
+                      <td>{{ page.extra.vector["Attack Vector"] }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Attack Complexity</strong></td>
+                      <td>{{ page.extra.vector["Attack Complexity"] }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Privileges Required</strong></td>
+                      <td>{{ page.extra.vector["Privileges Required"] | safe }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>User Interaction</strong></td>
+                      <td>{{ page.extra.vector["User Interaction"] }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Scope</strong></td>
+                      <td>{{ page.extra.vector["Scope"] }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Confidentiality Impact</strong></td>
+                      <td>{{ page.extra.vector["Confidentiality"] }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Integrity Impact</strong></td>
+                      <td>{{ page.extra.vector["Integrity"] }}</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Availability Impact</strong></td>
+                      <td>{{ page.extra.vector["Availability"] }}</td>
+                  </tr>
+              </table>
+            </div>
+            <script>
+              function toggleVector() {
+                const details = document.getElementById('vectorDetails');
+                details.style.display = details.style.display === 'none' ? 'block' : 'none';
+              }
+            </script>
+          </div>
+          {% endif %}
         </div>
         <hr>
 
@@ -29,28 +83,45 @@
         <div class="vote-section">
             <h3>Security Vote Status</h3>
             <div class="vote-badge
-                {% if page.extra.vote == "No Help, or Langs Won't Help" %}vote-red
-                {% elif page.extra.vote == "Opt-In Measures Only" %}vote-yellow
-                {% elif page.extra.vote == "Discouraged via Language, Library Design" %}vote-yellow
-                {% elif page.extra.vote == "Discouraged via Debug Mode" %}vote-yellow
-                {% elif page.extra.vote == "Virtually Impossible" %}vote-green
-                {% else %}vote-grey
-                {% endif %}">
-                {% if page.extra.vote %}
-                {{ page.extra.vote }}
-                {% else %}
-                No Vote
-								{% endif %}
+          {% if page.extra.vote["No Help, or Langs Wont Help"] %}vote-red
+          {% elif page.extra.vote["Discouraged"] %}vote-yellow
+          {% elif page.extra.vote["Virtually Impossible"] %}vote-green
+          {% else %}vote-grey
+          {% endif %}">
+          {% if page.extra.vote["Discouraged"] %}
+          Discouraged
+          {% elif page.extra.vote["No Help, or Langs Wont Help"] %}
+          No Help, or Langs Wont Help
+          {% elif page.extra.vote["Virtually Impossible"] %}
+          Virtually Impossible
+          {% else %}
+          No Vote 
+          {% endif %}
             </div>
         </div>
 
-        <!-- Clippy Helper -->
-        {% if page.extra.vote %}
-        <div class="clippy-section">
-            <h3>Clippy Support</h3>
-            <span class="clippy-badge {% if page.extra.clippy_helps %}vote-green{% else %}vote-red{% endif %}">
-                {% if page.extra.clippy_helps %}Clippy Helps{% else %}No Clippy Support{% endif %}
-            </span>
+        <!-- Discouraged Matrix -->
+        {% if page.extra.vote["Discouraged"] %}
+        <div class="discouraged-matrix">
+            <h3>Discouraged Measures</h3>
+            <table>
+          <tr>
+              <td>Library Design</td>
+              <td>{% if page.extra.vote["Discouraged via Library"] %}<span class="checkmark">&#10003;</span>{% endif %}</td>
+          </tr>
+          <tr>
+              <td>Borrow Checker</td>
+              <td>{% if page.extra.vote["Discouraged via Borrow Checker"] %}<span class="checkmark">&#10003;</span>{% endif %}</td>
+          </tr>
+          <tr>
+              <td>Debug Mode</td>
+              <td>{% if page.extra.vote["Discouraged via Debug Mode"] %}<span class="checkmark">&#10003;</span>{% endif %}</td>
+          </tr>
+          <tr>
+              <td>Clippy</td>
+              <td>{% if page.extra.vote["Discouraged via Clippy"] %}<span class="checkmark">&#10003;</span>{% endif %}</td>
+          </tr>
+            </table>
         </div>
         {% endif %}
 
