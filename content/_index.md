@@ -1,31 +1,15 @@
 +++
-title = "Rust Are We Secure Yet?"
-
-
-# The homepage contents
+title = "Rust Area We Secure Yet?"
 [extra]
-lead = 'A best-case speculation on how Rust fairs against CWEs'
-url = "/cwes/"
-url_button = "View CWE Mapping"
-repo_version = "GitHub"
-repo_license = "Open-source MIT License."
-repo_url = "https://github.com/VulnerabilityHistoryProject/rust-are-we-secure-yet"
-
-# Menu items
-[[extra.menu.main]]
-name = "CWEs"
-section = "cwes"
-url = "/cwes/"
-weight = 10
-
-[[extra.menu.main]]
-name = "Contributing"
-section = "contributing"
-url = "/docs/contributing/how-to-contribute"
-weight = 20
-
-
-[[extra.list]]
-title = "Contributing"
-content = 'See something that needs fixing? Want to contribute? Check out the <a href="/docs/contributing/how-to-contribute/">Contributing</a> page.'
+lead = "Learn about Rust's security risks and how to write safer code."
+url = "/docs/content/introduction"
+url_button = "Start Learning"
+repo_license = "MIT"
+repo_url = "https://github.com/your-repo"
+repo_version = "1.0.0"
+list = [
+    { title = "Best Practices", content = "Discover actionable strategies to write secure Rust code, such as leveraging the borrow checker and avoiding `unsafe` blocks." },
+    { title = "Common Vulnerabilities", content = "Explore real-world vulnerabilities that can still affect Rust applications, such as improper error handling and unsafe code usage." },
+    { title = "CWE Analysis", content = "Understand how Rust addresses vulnerabilities identified in the Common Weakness Enumeration (CWE) and learn how to mitigate them effectively." }
+]
 +++
