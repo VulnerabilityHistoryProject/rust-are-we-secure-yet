@@ -16,4 +16,5 @@ top = false
 ## CWE-667: Improper Locking
 - **Description**: Incorrect use of locking mechanisms, leading to deadlocks or race conditions.
 - **Impact**: Developers must ensure proper locking practices.
-- [Learn More](/cwe/cwe-667/)
+
+[Learn More →](/cwe/cwe-667/)

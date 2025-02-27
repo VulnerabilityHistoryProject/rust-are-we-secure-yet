@@ -16,4 +16,5 @@ top = false
 ## CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
 - **Description**: Multiple threads accessing a shared resource without proper synchronization.
 - **Impact**: Rust provides safe abstractions like `Mutex` and `Arc`, but misuse can still lead to race conditions.
-- [Learn More](/cwe/cwe-362/)
+
+[Learn More →](/cwe/cwe-362/)

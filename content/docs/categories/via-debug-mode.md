@@ -16,9 +16,11 @@ top = false
 ## CWE-190: Integer Overflow or Wraparound
 - **Description**: Arithmetic operations causing integer overflow or wraparound.
 - **Impact**: Debug Mode detects these issues, but Release Mode may not enforce them.
-- [Learn More](/cwe/cwe-190/)
+
+[Learn More →](/cwe/cwe-190/)
 
 ## CWE-617: Reachable Assertion
 - **Description**: Assertions that can be triggered during execution.
 - **Impact**: Debug Mode helps catch reachable assertions, but they may not be enforced in Release Mode.
-- [Learn More](/cwe/cwe-617/)
+
+[Learn More →](/cwe/cwe-617/)
