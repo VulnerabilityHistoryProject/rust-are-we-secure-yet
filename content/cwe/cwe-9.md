@@ -3,7 +3,7 @@ title = "CWE-9: Avoid Weak Access Permissions"
 description = "Learn how to prevent weak access permissions by securing sensitive methods in Rust applications."
 date = 2023-10-14T10:00:00+00:00
 updated = 2023-10-14T10:00:00+00:00
-draft = false
+draft = true
 template = "blog/page.html"
 
 [taxonomies]

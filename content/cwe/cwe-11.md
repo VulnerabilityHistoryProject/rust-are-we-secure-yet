@@ -3,7 +3,7 @@ title = "CWE-11: Avoid Creating Debug Binaries"
 description = "Learn how to prevent creating debug binaries in Rust by using proper build configurations."
 date = 2023-10-15T10:00:00+00:00
 updated = 2023-10-15T10:00:00+00:00
-draft = false
+draft = true
 template = "blog/page.html"
 
 [taxonomies]

@@ -3,7 +3,7 @@ title = "CWE-8: Avoid Exposing Sensitive Components"
 description = "Learn how to prevent exposing sensitive components by securing APIs with authentication in Rust applications."
 date = 2023-10-13T10:00:00+00:00
 updated = 2023-10-13T10:00:00+00:00
-draft = false
+draft = true
 template = "blog/page.html"
 
 [taxonomies]

@@ -3,7 +3,7 @@ title = "CWE-5: Avoid Sending Data Without Encryption"
 description = "Learn how to prevent insecure data transmission in Rust by using HTTPS and secure protocols."
 date = 2023-10-10T10:00:00+00:00
 updated = 2023-10-10T10:00:00+00:00
-draft = false
+draft = true
 template = "blog/page.html"
 
 [taxonomies]

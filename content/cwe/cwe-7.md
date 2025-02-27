@@ -3,7 +3,7 @@ title = "CWE-7: Avoid Missing Custom Error Pages"
 description = "Learn how to prevent exposing sensitive information by configuring custom error pages in Rust web applications."
 date = 2023-10-12T10:00:00+00:00
 updated = 2023-10-12T10:00:00+00:00
-draft = false
+draft = true
 template = "blog/page.html"
 
 [taxonomies]

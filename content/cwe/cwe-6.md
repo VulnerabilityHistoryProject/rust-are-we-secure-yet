@@ -3,7 +3,7 @@ title = "CWE-6: Avoid Insufficient Session-ID Length"
 description = "Learn how to prevent insecure session management in Rust by using long, random, and unpredictable session IDs."
 date = 2023-10-11T10:00:00+00:00
 updated = 2023-10-11T10:00:00+00:00
-draft = false
+draft = true
 template = "blog/page.html"
 
 [taxonomies]

@@ -7,14 +7,10 @@ sort_by = "weight"
 template = "docs/page.html"
 
 [extra]
-lead = "The Common Weakness Enumeration (CWE) is a critical resource for understanding and addressing software vulnerabilities. This page explains what CWE is, why it matters, and how it helps developers write secure code."
+lead = "Is a comprehensive, community-driven list of software security weaknesses and vulnerabilities. It serves as a universal language for identifying, categorizing, and discussing the types of mistakes that lead to security issues in software. By providing a standardized framework, the CWE helps developers, security professionals, and organizations better understand and mitigate risks in their code."
 toc = true
 top = false
 +++
-
-# Common Weakness Enumeration (CWE)
-
-Is a comprehensive, community-driven list of software security weaknesses and vulnerabilities. It serves as a universal language for identifying, categorizing, and discussing the types of mistakes that lead to security issues in software. By providing a standardized framework, the CWE helps developers, security professionals, and organizations better understand and mitigate risks in their code.
 
 ---
 
